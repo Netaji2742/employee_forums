@@ -70,6 +70,10 @@ python manage.py createsuperuser
 bash
 python manage.py runserver
 
+To test the testcases
+bash
+python manage.py test
+
 🌐 API Endpoints
 Authentication
 Endpoint	Method	Description
