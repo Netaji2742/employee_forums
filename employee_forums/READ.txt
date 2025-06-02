@@ -1,0 +1,128 @@
+Social Media Backend API
+A REST API backend for a Social Media application, built using Django, Django REST Framework (DRF), and Knox for authentication.
+
+This project provides core social features such as:
+
+✅ User Registration & Login
+✅ User Profiles (bio, picture, slug)
+✅ Posts (create, list)
+✅ Like/Unlike Posts
+✅ Connection Requests (send, accept)
+✅ User Recommendations (mutual connections)
+
+🚀 Features
+
+Token-based authentication with Knox
+
+User registration, login, logout
+
+User profile management (bio, profile picture)
+
+Post creation and retrieval
+
+Like and unlike posts
+
+Send/accept/decline connection requests
+
+Recommend users based on mutual connections
+
+API Documentation via Swagger and ReDoc
+
+🏗️ Tech Stack
+
+Python 3.x
+
+Django 4.x
+
+Django REST Framework
+
+Django REST Knox
+
+drf-yasg (for Swagger API docs)
+
+🔧 Setup Instructions
+1️⃣ Clone the Repository
+bash
+git clone https://github.com/yourusername/social-media-backend.git
+cd social-media-backend
+
+2️⃣ Create Virtual Environment
+bash
+python -m venv venv
+venv\Scripts\activate  # On Windows
+# Or
+source venv/bin/activate  # On Linux/Mac
+
+3️⃣ Install Requirements
+bash
+pip install -r requirements.txt
+
+4️⃣ Run Migrations
+bash
+python manage.py makemigrations
+python manage.py migrate
+
+5️⃣ Create Superuser (Optional)
+bash
+python manage.py createsuperuser
+
+6️⃣ Start the Development Server
+bash
+python manage.py runserver
+
+🌐 API Endpoints
+Authentication
+Endpoint	Method	Description
+/api/register/	POST	Register new user
+/api/login/	POST	Login (returns token)
+/api/logout/	POST	Logout (invalidate token)
+
+Profile
+Endpoint	Method	Description
+/api/profile/	GET/PUT	View or update user profile
+
+Posts
+Endpoint	Method	Description
+/api/posts/	GET	List all posts
+/api/posts/create/	POST	Create a new post
+/api/posts/<post_id>/like/	POST	Like a post
+/api/posts/<post_id>/unlike/	POST	Unlike a post
+
+Connections
+Endpoint	Method	Description
+/api/connections/send/<to_user_id>/	POST	Send connection request
+/api/connections/requests/	GET	View incoming connection requests
+/api/connections/accept/<conn_id>/	POST	Accept a connection request
+
+Recommendations
+Endpoint	Method	Description
+/api/recommendations/	GET	Recommend users to connect with
+
+🗂️ API Documentation
+After running the server, visit:
+
+Swagger UI: http://127.0.0.1:8000/doc
+
+ReDoc: http://127.0.0.1:8000/redoc
+
+📦 Requirements
+See requirements.txt:
+
+txt
+Copy
+Edit
+Django>=4.2
+djangorestframework
+django-rest-knox
+drf-yasg
+Install with:
+
+bash
+pip install -r requirements.txt
+
+🔒 Authentication
+All endpoints (except register/login) require token authentication:
+
+Include this in headers:
+
+Authorization: Token <your_token>
